@@ -176,16 +176,20 @@ class Wall(pygame.sprite.Sprite):
         self.image.fill(pygame.Color('white'))
         self.rect = self.image.get_rect(topleft=(x1, y1))
 
+
 def fullscreen():
     global screen
     screen = pygame.display.set_mode((800, 600), pygame.FULLSCREEN)
+
 
 def classic_screen():
     global screen
     screen = pygame.display.set_mode((800, 600))
 
+
 def terminate():
     pygame.quit()
+
 
 def start_screen(screen, font, winner=''):
     pygame.draw.rect(screen, (255, 0, 0), (160, 230, 140, 140), 0)
@@ -237,6 +241,7 @@ def start_screen(screen, font, winner=''):
                     flag = True
         pygame.display.flip()
 
+
 def main():
     pygame.init()
     pygame.mixer.init()
@@ -249,8 +254,8 @@ def main():
     all_sprites = pygame.sprite.Group()
     wall_sprites = pygame.sprite.Group()
 
-    Player1_image = 'Player1(32x32).png'
-    Player2_image = 'Player2(32x32).png'
+    Player1_image = 'Player1(32x32)v2.png'
+    Player2_image = 'Player2(32x32)v2.png'
 
     screen.fill((0, 6, 17))
 
@@ -307,7 +312,7 @@ def main():
                 vivedenie_texta = 0
                 spawn = True
 
-            if event.type == COUNTDOWN_EVENT: # игра выключается, если время заканчивается
+            if event.type == COUNTDOWN_EVENT:  # игра выключается, если время заканчивается
                 countdown_value -= 1
                 if countdown_value <= 0 and player1_health > player2_health:
                     pygame.mixer.music.load("Winner.mp3")
@@ -497,8 +502,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-#
-# pygame.mixer.music.load("natknulis-na-prepyatstvie.mp3")
-# pygame.mixer.music.play()
